@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    html {
+        background-image: url("background.png");
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+    
+    .tape {
+        width: 100px;
+        height: 30px;
+        background-color: #F0FFFF;
+        opacity: 0.4;
+        position: relative;
+        left: 100px;
+        box-shadow: 0px 5px 5px #888888;
+        top: -10px;
+        z-index: 1;
+    }
+    
+    .image {
+        /*        background-image: url("matt2.gif");
+*/
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 280px;
+        height: 210px;
+        position: relative;
+        left: 10px;
+        top: -20px;
+    }
+    
+    .polaroid {
+        position: relative;
+       /* margin-top: 20px;
+        margin-left: 20px;*/
+        display: inline-block;
+        height: 300px;
+        width: 300px;
+        border-radius: 2px;
+        padding: 4px;
+        background-color: #F8F8FF;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1)
+    }
+    
+    .name {
+        font-color: #101010;
+        width: 300px;
+        height: 20px;
+        background-color: #F8F8FF;
+        position: relative;
+        top: 0px;
+        text-align: center;
+        font-family: "attack of the cucumbers";
+        font-size: 50px;
+    }
+
+       
+    #titlebar {
+        width: 100%;
+        background-color: rgba(255,255,255, 0.5);
+        font-family: courier;
+        font-size: 80px;
+        text-align: center;
+        z-index: 20;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="titlebar">Invisible Forces & Us</div>
+
+    <script>
+    var individuals = [{
+            name: "Aaron",
+            image: "url(./gifs/aaron.gif)",
+            link: "https://www.youtube.com/watch?v=jr2ING8oLwU"
+        },
+
+        {
+            name: "Shaliah",
+            image: "url(https://media.giphy.com/media/hJ4DSRqEmIasg/giphy.gif)",
+            link: "https://www.google.com/",
+        },
+
+        {
+            name: "Owen T",
+            image: "url(./gifs/owenT.gif)",
+            link: "https://www.youtube.com/watch?v=PcXWnIXE-bM"
+        },
+
+        {
+            name: "Migdalis",
+            image: "url(./gifs/migdalis.png)",
+            link: "https://www.youtube.com/watch?v=fS5wvw2puJo",
+        },
+
+        {
+            name: "Phones",
+            image: "url(./gifs/isaac2.gif)",
+            link: "https://www.youtube.com/watch?v=r-z0IRQpjRg",
+        },
+
+        {
+            name: "G-Earth",
+            image: "url(./gifs/ben-car.gif)",
+            link: "https://www.youtube.com/watch?v=g0FpFtVrthE",
+        },
+
+           {
+            name: "Friends",
+            image: "url(./gifs/ben.png)",
+            link: "https://www.youtube.com/watch?v=nHZiBAhd0b8",
+        },
+
+        {
+            name: "My Life",
+            image: "url(./gifs/lucy1.gif)",
+            link: "https://www.youtube.com/watch?v=wlIuv_KqJRU",
+        },
+
+        {name: "Costs",
+        image: "url(./gifs/lucy2.gif)",
+        link: "https://www.youtube.com/watch?v=GjZoKDvcEfs"
+
+        },
+
+        
+
+
+        {
+            name: "Randomness",
+            image: "url(./gifs/justin.png)",
+            link: "https://www.youtube.com/edit?o=U&video_id=c5Umj_zWMig",
+
+        },
+
+          {
+            name: "Becoming a Gamer",
+            image: "url(./gifs/justin.gif)",
+            link: "https://www.youtube.com/watch?v=CY5uSsKdnjU",
+
+        },
+
+
+        {
+            name: "Victor",
+            image: "url(https://media.giphy.com/media/YBJ2u8rkqC4tW/giphy.gif)",
+            link: "",
+
+
+
+        },
+
+        {
+            name: "Elida",
+
+            image: "url(https://media.giphy.com/media/YBJ2u8rkqC4tW/giphy.gif)",
+            link: "",
+
+        },
+
+
+    ];
+
+
+    function makePolaroid(individual) {
+
+        var polaroid = document.createElement('div');
+        document.body.appendChild(polaroid);
+        polaroid.className = "polaroid";
+        polaroid.style.transform = "rotate(" + (Math.random() * 90 - 45)  +"deg)";
+        polaroid.style.marginLeft = 100 + (Math.random() * 20 - 10) + "px";
+        polaroid.style.marginTop = 30 + (Math.random() * 20 - 10) + "px";
+
+
+
+        var tape = document.createElement("div");
+        polaroid.appendChild(tape);
+        tape.className = "tape";
+
+
+        var projectLink = document.createElement("a");
+        polaroid.appendChild(projectLink);
+        projectLink.setAttribute('href', individual.link);
+        projectLink.style.width='500px';
+        projectLink.style.height='500px';
+
+
+        var image = document.createElement("div");
+        projectLink.appendChild(image);
+        image.className = "image";
+        image.style.backgroundImage = individual.image;
+
+        // polaroid[].addEventListener("click", function(){
+        //     console.log("hi")});
+        // location.href = individuals.link;}
+
+
+
+        var name = document.createElement('div');
+        name.className = "name";
+        polaroid.appendChild(name);
+        name.innerText = individual.name;
+
+
+
+
+    };
+
+    individuals.forEach(makePolaroid);
+    </script>
+</body>
+
+</html>
